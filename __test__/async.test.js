@@ -22,4 +22,12 @@ describe("Probar Async/Await", () => {
     const rick = await getDataFromApi(getRick);
     expect(rick.name).toEqual("Rick Sanchez");
   });
+
+  test("Realizando una peticion a un API con error", async () => {
+    const apiError = "http://httpstat.us/500";
+    const peticion = getDataFromApi(apiError);
+    await expect(peticion).rejects.toEqual(
+      Error("Request failed with status code 500")
+    );
+  });
 });
