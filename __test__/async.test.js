@@ -30,4 +30,9 @@ describe("Probar Async/Await", () => {
       Error("Request failed with status code 500")
     );
   });
+
+  test("Resuelve un Hola", async () => {
+    await expect(Promise.resolve("Hola")).resolves.toBe("Hola");
+    await expect(Promise.reject("Error")).rejects.toBe("Error");
+  });
 });
